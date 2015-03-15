@@ -1,0 +1,55 @@
+#include"shell.h"
+
+void func_ps(char *userinputargs[])
+{
+
+ DIR *dirptr1,*dirptr2;
+ struct dirent *dptr;
+ FILE *file;
+ char buff[20];
+ int n;
+ if((dirptr1=opendir("/proc"))==NULL)
+ {
+   printf("Sorry...Error opening the dir...\n");
+   exit(1);
+ }	
+ chdir("/proc");
+ while((dptr=readdir(dirptr1)))
+ {
+  // strcpy(buff,dptr->d_name);
+  n=sprintf(buff,"%s",dptr->d_name);  
+  if(n<0)
+  {
+   printf("\nError...\n");
+   exit(1);
+   }
+
+  if(isdigit(buff[0]))
+  {
+   printf("\npid:%s\n",buff);
+
+  /* if((dirptr2=opendir("/proc/buff"))==NULL)
+   {  
+    printf("SSSSSSSorry...Error opening the dir...\n");
+    exit(1);  
+   }*/
+   
+    if((file=fopen("/buff/stat","r"))==NULL)
+    {
+     printf("Sorry...Error opening the stat file...\n");
+     exit(1);  
+    }
+
+
+
+  }
+}
+}
+  //strcpy(buff,dptr->dname);
+ /*  sscanf(dname->dptr,"%s",buff);
+  if((dirptr2=opendir("/proc/buff/stat"))==NULL)
+  {
+     printf("Sorry...Error opening the dir...\n");
+     exit(1);
+  }*/
+

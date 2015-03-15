@@ -1,0 +1,8 @@
+-->   How to compile
+$ make
+
+-->   How to run
+$./02_17_sh
+
+-->   How to remove .o files
+$make clean
